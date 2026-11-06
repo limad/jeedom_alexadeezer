@@ -5,7 +5,7 @@
 	"replacedBy" : "alexaamazonmusic",
 	"description" : "OBSOLÈTE : dépend d'Alexa - API. Alternative : Alexa - Amazon Music (alexaamazonmusic), avec Alexa Premium (alexaapiv2). Interface Deezer",
 	"licence" : "AGPL",
-	"author" : "Limad44",
+	"author" : "Sigalou",
 	"require" : "3.3.24",
 	"version": "0.0.1",
 	"changelog" : "http://jeedom.sigalou-domotique.fr/alexa-api-changelog",
