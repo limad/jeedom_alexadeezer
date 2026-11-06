@@ -91,7 +91,7 @@ class alexadeezer extends eqLogic {
 		}
 
 		if ($_playlists) {
-			$json = file_get_contents("http://" . config::byKey('internalAddr') . ":3456/playlists?device=".$device);
+			$json = file_get_contents("http://" . config::byKey('internalAddr') . ":3466/playlists?device=".$device);
 			$json = json_decode($json, true);	
 			$ListeDesPlaylists = [];
 			foreach ($json as $key => $value) {
@@ -390,7 +390,7 @@ class alexadeezerCmd extends cmd {
 		}
 		if ($this->getType() == 'action') {
 			$eqLogic = $this->getEqLogic();
-			$this->setConfiguration('value', 'http://' . config::byKey('internalAddr') . ':3456/' . $this->getConfiguration('request') . "&device=" . $eqLogic->getConfiguration('serial'));
+			$this->setConfiguration('value', 'http://' . config::byKey('internalAddr') . ':3466/' . $this->getConfiguration('request') . "&device=" . $eqLogic->getConfiguration('serial'));
 		}
 		$actionInfo = alexadeezerCmd::byEqLogicIdCmdName($this->getEqLogic_id(), $this->getName());
 		if (is_object($actionInfo)) $this->setId($actionInfo->getId());
@@ -417,7 +417,7 @@ class alexadeezerCmd extends cmd {
 		}
 
 		$request = $this->buildRequest($_options);
-		log::add('alexadeezer', 'info', 'Request : ' . $request);//Request : http://192.168.0.21:3456/volume?value=50&device=G090LF118173117U
+		log::add('alexadeezer', 'info', 'Request : ' . $request);//Request : http://192.168.0.21:3466/volume?value=50&device=G090LF118173117U
 		$request_http = new com_http($request);
 		$request_http->setAllowEmptyReponse(true);//Autorise les réponses vides
 		if ($this->getConfiguration('noSslCheck') == 1) $request_http->setNoSslCheck(true);
@@ -510,7 +510,7 @@ class alexadeezerCmd extends cmd {
 		$request = scenarioExpression::setTags($request);
 		if (trim($request) == '') throw new Exception(__('Commande inconnue ou requête vide : ', __FILE__) . print_r($this, true));
 		$device=str_replace("_player", "", $this->getEqLogic()->getConfiguration('serial'));
-		return 'http://' . config::byKey('internalAddr') . ':3456/' . $request . '&device=' . $device;
+		return 'http://' . config::byKey('internalAddr') . ':3466/' . $request . '&device=' . $device;
 	}
 
 	private function build_ControledeSliderSelectMessage($_options = array(), $default = "Ceci est un message de test") {

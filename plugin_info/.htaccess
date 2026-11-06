@@ -1,0 +1,9 @@
+# La règle racine de Jeedom (RedirectMatch 403 .../plugin_info/.../...) ne protège que les
+# sous-dossiers de plugin_info/, pas les fichiers à sa racine directe : install.php et
+# configuration.php restent exécutables en accès HTTP direct sans passer par l'authentification
+# admin (source : audit du plugin google_assistant, même schéma de faille constaté ici après
+# balayage de tous les plugins de cet auteur). Portée volontairement scopée aux .php : l'icône du
+# plugin (et tout autre asset statique de ce dossier) doit rester servie en direct.
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>

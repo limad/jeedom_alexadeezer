@@ -72,11 +72,15 @@ var str=data.logicalId
     <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
     <div class="eqLogicThumbnailContainer">
 
-		<div class="cursor eqLogicAction logoSecondary">
-			<a href="index.php?v=d&m=alexaapi&p=alexaapi"><img  style="margin-top:-32px;" src="plugins/alexaapi/core/config/devices/default.png" width="75" height="75" style="min-height:75px !important;" />
-			<br />
-			<span style="color:#42d4eb">{{Lien Alexa-API}}</span></a>
-		</div>
+		<!-- Bouton d accès à la configuration -->
+            <a href="index.php?v=d&amp;m=alexaapiv2&amp;p=alexaapiv2">
+                <div class="cursor eqLogicAction logoSecondary">
+                    <img style="margin-top: -14px;width: 40px !important;" src="plugins/alexaapiv2/plugin_info/alexaapiv2_icon.png">
+                    <br>
+                    <span style="color:#42d4eb">Lien Alexa-Premium</span>
+                </div>
+            </a>
+            
 		
 		<!-- Bouton d accès à la configuration -->
 		<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
@@ -123,12 +127,12 @@ $interval = $datetimecreation->diff($datetimeaujourdhui);
 	
 		if (($eqLogic->getStatus('online') != 'true')){
 				//echo '<i class="fas fa-power-off" style="color: red;text-shadow: 4px 4px 4px #ccc;float:right" title="Offline"></i>';
-				echo '<span class="badge-alexaapi badge-danger">Off</span>';
+				echo '<span class="badge-alexaapiv2 badge-danger">Off</span>';
 		} elseif (($eqLogic->getStatus('Playing') == 'true')) {
 				echo '<i class="fas loisir-musical7" style="color: #2c8af6;text-shadow: 4px 4px 4px #ccc;float:right" title="Playing"></i>';
 		} else {
 			if ($interval->format('%a') <1) {
-				echo '<span class="badge-alexaapi badge-success">Nouveau</span>';
+				echo '<span class="badge-alexaapiv2 badge-success">Nouveau</span>';
 			}
 		}
 		
