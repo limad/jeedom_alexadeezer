@@ -1,7 +1,9 @@
 {
 	"id" : "alexadeezer",
-	"name" : "Alexa - Deezer",
-	"description" : "Interface Deezer",
+	"name" : "Alexa - Deezer (obsolète)",
+	"deprecated" : true,
+	"replacedBy" : "alexaapiv2",
+	"description" : "OBSOLÈTE : dépend d'Alexa - API, remplacé par Alexa Premium (alexaapiv2). Interface Deezer",
 	"licence" : "AGPL",
 	"author" : "Limad44",
 	"require" : "3.3.24",
